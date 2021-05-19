@@ -126,14 +126,14 @@ chain for " target " development."))
       (home-page (package-home-page xgcc))
       (license (package-license xgcc)))))
 
-(define* (make-bitcoin-cross-toolchain target
+(define* (make-beticoin-cross-toolchain target
                                   #:key
                                   (base-gcc-for-libc gcc-7)
                                   (base-kernel-headers linux-libre-headers-5.4)
                                   (base-libc glibc)  ; glibc 2.31
                                   (base-gcc (make-gcc-rpath-link gcc-8)))
   "Convenience wrapper around MAKE-CROSS-TOOLCHAIN with default values
-desirable for building Bitcoin Core release binaries."
+desirable for building beticoin Core release binaries."
   (make-cross-toolchain target
                    base-gcc-for-libc
                    base-kernel-headers
@@ -264,7 +264,7 @@ parse, modify and abstract ELF, PE and MachO formats.")
                  (make-mingw-pthreads-cross-toolchain "x86_64-w64-mingw32")
                  (make-nsis-with-sde-support nsis-x86_64)))
           ((string-contains target "-linux-")
-           (list (make-bitcoin-cross-toolchain target)))
+           (list (make-beticoin-cross-toolchain target)))
           ((string-contains target "darwin")
            (list clang-toolchain-10 binutils imagemagick libtiff librsvg font-tuffy cmake xorriso))
           (else '())))))

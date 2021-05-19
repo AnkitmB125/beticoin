@@ -1,13 +1,13 @@
-// Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2020 The Bitcoin Core developers
+// Copyright (c) 2009-2010 betishi Nakamoto
+// Copyright (c) 2009-2020 The beticoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_VALIDATION_H
-#define BITCOIN_VALIDATION_H
+#ifndef beticoin_VALIDATION_H
+#define beticoin_VALIDATION_H
 
 #if defined(HAVE_CONFIG_H)
-#include <config/bitcoin-config.h>
+#include <config/beticoin-config.h>
 #endif
 
 #include <amount.h>
@@ -182,7 +182,7 @@ struct MempoolAcceptResult {
     // The following fields are only present when m_result_type = ResultType::VALID
     /** Mempool transactions replaced by the tx per BIP 125 rules. */
     const std::optional<std::list<CTransactionRef>> m_replaced_transactions;
-    /** Raw base fees in satoshis. */
+    /** Raw base fees in betishis. */
     const std::optional<CAmount> m_base_fees;
 
     /** Constructor for failure case */
@@ -1006,4 +1006,4 @@ bool LoadMempool(CTxMemPool& pool, CChainState& active_chainstate, FopenFn mocka
  */
 const AssumeutxoData* ExpectedAssumeutxo(const int height, const CChainParams& params);
 
-#endif // BITCOIN_VALIDATION_H
+#endif // beticoin_VALIDATION_H

@@ -1,10 +1,10 @@
-// Copyright (c) 2009-2014 The Bitcoin Core developers
+// Copyright (c) 2009-2014 The beticoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_COMPAT_SANITY_H
-#define BITCOIN_COMPAT_SANITY_H
+#ifndef beticoin_COMPAT_SANITY_H
+#define beticoin_COMPAT_SANITY_H
 
 bool glibcxx_sanity_test();
 
-#endif // BITCOIN_COMPAT_SANITY_H
+#endif // beticoin_COMPAT_SANITY_H

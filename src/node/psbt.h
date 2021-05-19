@@ -1,9 +1,9 @@
-// Copyright (c) 2009-2019 The Bitcoin Core developers
+// Copyright (c) 2009-2019 The beticoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_NODE_PSBT_H
-#define BITCOIN_NODE_PSBT_H
+#ifndef beticoin_NODE_PSBT_H
+#define beticoin_NODE_PSBT_H
 
 #include <psbt.h>
 
@@ -53,4 +53,4 @@ struct PSBTAnalysis {
  */
 PSBTAnalysis AnalyzePSBT(PartiallySignedTransaction psbtx);
 
-#endif // BITCOIN_NODE_PSBT_H
+#endif // beticoin_NODE_PSBT_H

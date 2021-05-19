@@ -1,0 +1,67 @@
+#!/usr/bin/env bash
+#
+#  beticoind The beticoin core server.
+#
+#
+# chkconfig: 345 80 20
+# description: beticoind
+# processname: beticoind
+#
+
+# Source function library.
+. /etc/init.d/functions
+
+# you can override defaults in /etc/sysconfig/beticoind, see below
+if [ -f /etc/sysconfig/beticoind ]; then
+        . /etc/sysconfig/beticoind
+fi
+
+RETVAL=0
+
+prog=beticoind
+# you can override the lockfile via beticoinD_LOCKFILE in /etc/sysconfig/beticoind
+lockfile=${beticoinD_LOCKFILE-/var/lock/subsys/beticoind}
+
+# beticoind defaults to /usr/bin/beticoind, override with beticoinD_BIN
+beticoind=${beticoinD_BIN-/usr/bin/beticoind}
+
+# beticoind opts default to -disablewallet, override with beticoinD_OPTS
+beticoind_opts=${beticoinD_OPTS--disablewallet}
+
+start() {
+    echo -n $"Starting $prog: "
+    daemon $DAEMONOPTS $beticoind $beticoind_opts
+    RETVAL=$?
+    echo
+    [ $RETVAL -eq 0 ] && touch $lockfile
+    return $RETVAL
+}
+
+stop() {
+    echo -n $"Stopping $prog: "
+    killproc $prog -t600
+    RETVAL=$?
+    echo
+    [ $RETVAL -eq 0 ] && rm -f $lockfile
+    return $RETVAL
+}
+
+case "$1" in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    status)
+        status $prog
+        ;;
+    restart)
+        stop
+        start
+        ;;
+    *)
+        echo "Usage: service $prog {start|stop|status|restart}"
+        exit 1
+        ;;
+esac

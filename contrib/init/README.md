@@ -1,11 +1,11 @@
 Sample configuration files for:
 ```
-systemd: bitcoind.service
-Upstart: bitcoind.conf
-OpenRC:  bitcoind.openrc
-         bitcoind.openrcconf
-CentOS:  bitcoind.init
-macOS:   org.bitcoin.bitcoind.plist
+systemd: beticoind.service
+Upstart: beticoind.conf
+OpenRC:  beticoind.openrc
+         beticoind.openrcconf
+CentOS:  beticoind.init
+macOS:   org.beticoin.beticoind.plist
 ```
 have been made available to assist packagers in creating node packages here.
 

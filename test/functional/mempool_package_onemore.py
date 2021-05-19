@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Copyright (c) 2014-2020 The Bitcoin Core developers
+# Copyright (c) 2014-2020 The beticoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test descendant package tracking carve-out allowing one final transaction in
@@ -9,13 +9,13 @@
 
 from decimal import Decimal
 
-from test_framework.test_framework import BitcoinTestFramework
-from test_framework.util import assert_equal, assert_raises_rpc_error, satoshi_round
+from test_framework.test_framework import beticoinTestFramework
+from test_framework.util import assert_equal, assert_raises_rpc_error, betishi_round
 
 MAX_ANCESTORS = 25
 MAX_DESCENDANTS = 25
 
-class MempoolPackagesTest(BitcoinTestFramework):
+class MempoolPackagesTest(beticoinTestFramework):
     def set_test_params(self):
         self.num_nodes = 1
         self.extra_args = [["-maxorphantx=1000"]]
@@ -26,7 +26,7 @@ class MempoolPackagesTest(BitcoinTestFramework):
     # Build a transaction that spends parent_txid:vout
     # Return amount sent
     def chain_transaction(self, node, parent_txids, vouts, value, fee, num_outputs):
-        send_value = satoshi_round((value - fee)/num_outputs)
+        send_value = betishi_round((value - fee)/num_outputs)
         inputs = []
         for (txid, vout) in zip(parent_txids, vouts):
             inputs.append({'txid' : txid, 'vout' : vout})

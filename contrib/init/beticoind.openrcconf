@@ -1,0 +1,33 @@
+# /etc/conf.d/beticoind: config file for /etc/init.d/beticoind
+
+# Config file location
+#beticoinD_CONFIGFILE="/etc/beticoin/beticoin.conf"
+
+# What directory to write pidfile to?  (created and owned by $beticoinD_USER)
+#beticoinD_PIDDIR="/var/run/beticoind"
+
+# What filename to give the pidfile
+#beticoinD_PIDFILE="${beticoinD_PIDDIR}/beticoind.pid"
+
+# Where to write beticoind data (be mindful that the blockchain is large)
+#beticoinD_DATADIR="/var/lib/beticoind"
+
+# User and group to own beticoind process
+#beticoinD_USER="beticoin"
+#beticoinD_GROUP="beticoin"
+
+# Path to beticoind executable
+#beticoinD_BIN="/usr/bin/beticoind"
+
+# Nice value to run beticoind under
+#beticoinD_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+#beticoinD_OPTS=""
+
+# The timeout in seconds OpenRC will wait for beticoind to terminate
+# after a SIGTERM has been raised.
+# Note that this will be mapped as argument to start-stop-daemon's
+# '--retry' option, which means you can specify a retry schedule
+# here. For more information see man 8 start-stop-daemon.
+beticoinD_SIGTERM_TIMEOUT=600

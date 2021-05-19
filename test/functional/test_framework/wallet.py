@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Copyright (c) 2020 The Bitcoin Core developers
+# Copyright (c) 2020 The beticoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """A limited-functionality wallet, which may replace a real wallet in tests"""
@@ -22,7 +22,7 @@ from test_framework.script import (
 from test_framework.util import (
     assert_equal,
     hex_str_to_bytes,
-    satoshi_round,
+    betishi_round,
 )
 
 
@@ -80,17 +80,17 @@ class MiniWallet:
             return self._utxos[index]
 
     def send_self_transfer(self, *, fee_rate=Decimal("0.003"), from_node, utxo_to_spend=None):
-        """Create and send a tx with the specified fee_rate. Fee may be exact or at most one satoshi higher than needed."""
+        """Create and send a tx with the specified fee_rate. Fee may be exact or at most one betishi higher than needed."""
         tx = self.create_self_transfer(fee_rate=fee_rate, from_node=from_node, utxo_to_spend=utxo_to_spend)
         self.sendrawtransaction(from_node=from_node, tx_hex=tx['hex'])
         return tx
 
     def create_self_transfer(self, *, fee_rate=Decimal("0.003"), from_node, utxo_to_spend=None, mempool_valid=True):
-        """Create and return a tx with the specified fee_rate. Fee may be exact or at most one satoshi higher than needed."""
+        """Create and return a tx with the specified fee_rate. Fee may be exact or at most one betishi higher than needed."""
         self._utxos = sorted(self._utxos, key=lambda k: k['value'])
         utxo_to_spend = utxo_to_spend or self._utxos.pop()  # Pick the largest utxo (if none provided) and hope it covers the fee
         vsize = Decimal(96)
-        send_value = satoshi_round(utxo_to_spend['value'] - fee_rate * (vsize / 1000))
+        send_value = betishi_round(utxo_to_spend['value'] - fee_rate * (vsize / 1000))
         fee = utxo_to_spend['value'] - send_value
         assert send_value > 0
 
